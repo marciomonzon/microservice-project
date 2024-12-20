@@ -8,6 +8,6 @@ namespace GeekShopping.ProductApi.Data.Repositories.Interfaces
         Task<ProductDto> GetByIdAsync(Guid id);
         Task<ProductDto> CreateAsync(ProductDto product);
         Task<ProductDto> Update(ProductDto product);
-        Task<ProductDto> DeleteByIdAsync(Guid id);
+        Task<bool> DeleteByIdAsync(Guid id);
     }
 }

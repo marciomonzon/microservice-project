@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using GeekShopping.ProductApi.Config;
 using GeekShopping.ProductApi.Data.Context;
+using GeekShopping.ProductApi.Data.Repositories;
+using GeekShopping.ProductApi.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace GeekShopping.ProductApi.Extensions
@@ -26,6 +28,11 @@ namespace GeekShopping.ProductApi.Extensions
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             builder.Services.AddSingleton(mapper);
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        }
+
+        public static void AddInterfacesServices(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
         }
     }
 }
