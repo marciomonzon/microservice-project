@@ -5,6 +5,7 @@ var configuration = builder.Configuration;
 
 builder.AddServices();
 builder.AddDatabase();
+builder.AddAutoMapper();
 
 var app = builder.Build();
 

@@ -1,4 +1,6 @@
-﻿using GeekShopping.ProductApi.Data.Context;
+﻿using AutoMapper;
+using GeekShopping.ProductApi.Config;
+using GeekShopping.ProductApi.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace GeekShopping.ProductApi.Extensions
@@ -17,6 +19,13 @@ namespace GeekShopping.ProductApi.Extensions
             var configuration = builder.Configuration;
             builder.Services.AddDbContext<ApiDbContext>(options => options
                             .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        }
+
+        public static void AddAutoMapper(this WebApplicationBuilder builder)
+        {
+            IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+            builder.Services.AddSingleton(mapper);
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
     }
 }
