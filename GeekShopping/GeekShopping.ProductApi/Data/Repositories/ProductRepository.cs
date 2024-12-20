@@ -27,7 +27,7 @@ namespace GeekShopping.ProductApi.Data.Repositories
             return _mapper.Map<List<ProductDto>>(products);
         }
 
-        public async Task<ProductDto> GetByIdAsync(Guid id)
+        public async Task<ProductDto> GetByIdAsync(long id)
         {
             var product = await _context.Products
                                         .FirstOrDefaultAsync(p => p.Id == id);
@@ -56,7 +56,7 @@ namespace GeekShopping.ProductApi.Data.Repositories
             return _mapper.Map<ProductDto>(product);
         }
 
-        public async Task<bool> DeleteByIdAsync(Guid id)
+        public async Task<bool> DeleteByIdAsync(long id)
         {
             var product = await _context.Products
                                         .FirstOrDefaultAsync(p => p.Id == id);

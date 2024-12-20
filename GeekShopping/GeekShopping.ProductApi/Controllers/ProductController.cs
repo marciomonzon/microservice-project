@@ -27,7 +27,7 @@ namespace GeekShopping.ProductApi.Controllers
         }
 
         [HttpGet("get-product")]
-        public async Task<IActionResult> GetByIdAsync(Guid id) 
+        public async Task<IActionResult> GetByIdAsync(long id) 
         {
             var product = await _productRepository.GetByIdAsync(id);
 
@@ -57,7 +57,7 @@ namespace GeekShopping.ProductApi.Controllers
         }
 
         [HttpPost("delete-product")]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        public async Task<IActionResult> DeleteAsync(long id)
         {
             var status = await _productRepository.DeleteByIdAsync(id);
 
