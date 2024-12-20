@@ -1,4 +1,4 @@
-﻿using GeekShopping.ProductApi.Model.Context;
+﻿using GeekShopping.ProductApi.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace GeekShopping.ProductApi.Extensions
